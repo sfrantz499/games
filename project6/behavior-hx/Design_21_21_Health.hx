@@ -69,18 +69,37 @@ import com.stencyl.graphics.shaders.BloomShader;
 
 
 
-class ActorEvents_50 extends ActorScript
+class Design_21_21_Health extends ActorScript
 {
+	public var _HealthPoints:Float;
 	
 	
 	public function new(dummy:Int, actor:Actor, dummy2:Engine)
 	{
 		super(actor);
+		nameMap.set("Actor", "actor");
+		nameMap.set("Health Points", "_HealthPoints");
+		_HealthPoints = 3.0;
 		
 	}
 	
 	override public function init()
 	{
+		
+		/* ========================= Type & Type ========================== */
+		addSceneCollisionListener(getActorType(52).ID, getActorType(50).ID, function(event:Collision, list:Array<Dynamic>):Void
+		{
+			if(wrapper.enabled)
+			{
+				recycleActor(event.thisActor);
+				_HealthPoints = asNumber((_HealthPoints - 1));
+				propertyChanged("_HealthPoints", _HealthPoints);
+				if((_HealthPoints <= 0))
+				{
+					recycleActor(event.otherActor);
+				}
+			}
+		});
 		
 	}
 	

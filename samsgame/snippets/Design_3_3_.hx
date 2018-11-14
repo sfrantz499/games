@@ -103,12 +103,12 @@ class Design_4_4_Jumping extends ActorScript
 			if(wrapper.enabled)
 			{
 				trace("" + actor.getCurrentFrame());
-				/* Jump */
+				/* "Jump" */
 				if((isKeyPressed(_JumpKey) && (actor.getActorValue("On Ground?") == true)))
 				{
 					playSound(_JumpSound);
 					actor.applyImpulse(0, -1, _JumpForce);
-					/* Give the Actor a chance to get off the ground */
+					/* "Give the Actor a chance to get off the ground" */
 					runLater(1000 * 0.075, function(timeTask:TimedTask):Void
 					{
 						if(actor.isAlive())
@@ -117,7 +117,7 @@ class Design_4_4_Jumping extends ActorScript
 						}
 					}, actor);
 				}
-				/* Switch to jumping animations */
+				/* "Switch to jumping animations" */
 				if((actor.getActorValue("On Ground?") == false))
 				{
 					if((actor.getActorValue("Facing Right?") == true))
@@ -139,7 +139,7 @@ class Design_4_4_Jumping extends ActorScript
 		{
 			if(wrapper.enabled)
 			{
-				/* Has the Actor collided with the ground? */
+				/* "Has the Actor collided with the ground?" */
 				if(event.thisCollidedWithTile)
 				{
 					for(point in event.points)
@@ -158,5 +158,110 @@ class Design_4_4_Jumping extends ActorScript
 	override public function forwardMessage(msg:String)
 	{
 		
+	}
+}/*
+    Stencyl exclusively uses the Haxe programming language. 
+    Haxe is similar to ActionScript and JavaScript.
+    
+    Want to use native code or make something reusable? Use the Extensions Framework instead.
+    http://www.stencyl.com/help/view/engine-extensions/
+    
+    Learn more about Haxe and our APIs
+    http://www.stencyl.com/help/view/haxe/
+*/
+
+package scripts;
+
+
+//==========================================================
+// Imports
+//==========================================================
+
+import com.stencyl.graphics.G;
+
+import com.stencyl.behavior.Script;
+import com.stencyl.behavior.Script.*;
+import com.stencyl.behavior.ActorScript;
+import com.stencyl.behavior.SceneScript;
+import com.stencyl.behavior.TimedTask;
+
+import com.stencyl.models.Actor;
+import com.stencyl.models.GameModel;
+import com.stencyl.models.actor.Animation;
+import com.stencyl.models.actor.ActorType;
+import com.stencyl.models.actor.Collision;
+import com.stencyl.models.actor.Group;
+import com.stencyl.models.Scene;
+import com.stencyl.models.Sound;
+import com.stencyl.models.Region;
+import com.stencyl.models.Font;
+import com.stencyl.models.Joystick;
+
+import com.stencyl.Engine;
+import com.stencyl.Input;
+import com.stencyl.utils.Utils;
+
+import nme.ui.Mouse;
+import nme.display.Graphics;
+
+import motion.Actuate;
+import motion.easing.Back;
+import motion.easing.Cubic;
+import motion.easing.Elastic;
+import motion.easing.Expo;
+import motion.easing.Linear;
+import motion.easing.Quad;
+import motion.easing.Quart;
+import motion.easing.Quint;
+import motion.easing.Sine;
+
+
+class Design_3_3_ extends ActorScript
+{
+	//Expose your attributes like this:
+	//@:attribute("id='1' name='Display Name' desc='An Attribute'")
+	//public var attributeName:String;
+
+	//Need further help? See: http://www.stencyl.com/help/view/code-mode/
+	
+	override public function init()
+	{
+	}
+	
+	public inline function update(elapsedTime:Float)
+	{
+	}
+	
+	public inline function draw(g:G)
+	{
+	}
+	
+	
+	//==========================================================
+	// Don't edit below unless you know what you're doing
+	//==========================================================
+	
+	public function new(dummy:Int, actor:Actor, dummy2:Engine)
+	{
+		super(actor);
+		
+		addWhenUpdatedListener(null, onUpdate);
+		addWhenDrawingListener(null, onDraw);
+	}
+	
+	public function onUpdate(elapsedTime:Float, list:Array<Dynamic>)
+	{
+		if(wrapper.enabled)
+		{
+			update(elapsedTime);
+		}
+	}
+	
+	public function onDraw(g:G, x:Float, y:Float, list:Array<Dynamic>)
+	{
+		if(wrapper.enabled)
+		{
+			draw(g);
+		}
 	}
 }

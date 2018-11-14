@@ -110,12 +110,12 @@
             </group>
         </step>
     </group>
-    <group eventID="3" id="5">
+    <group eventID="3" id="1">
         <else comment="false" x="176" y="686">
             <group eventID="3" id="-1"/>
         </else>
     </group>
-    <group eventID="3" id="8">
+    <group eventID="3" id="2">
         <set-xy comment="false" x="157" y="768">
             <ACTOR eid="this" id="0"/>
             <int id="1" val="0"/>

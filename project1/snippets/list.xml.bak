@@ -40,7 +40,9 @@
     <snippet attachedevent="false" class="scripts.Design_3_3_DieinPitandReload" classname="scripts.Design_3_3_DieinPitandReload" desc="" description="" design="true" drawOrder="0" id="3" name="Die in Pit and Reload" oid="-1" package="" shared="false" type="actor">
         <actor default="thisactor" defaultValue="thisactor" desc="" dropdown="" fullname="Actor" hidden="true" id="2147483647" name="actor" order="2147483647"/>
         <blocks/>
-        <events/>
+        <events>
+            <event displayName="Updating" enabled="true" id="1" name="step" order="1" repeats="true"/>
+        </events>
     </snippet>
     <snippet attachedevent="false" class="scripts.Design_4_4_Jumping" classname="scripts.Design_4_4_Jumping" desc="" description="" design="true" drawOrder="0" id="4" name="Jumping" oid="-1" package="" shared="false" type="actor">
         <actor default="thisactor" defaultValue="thisactor" desc="" dropdown="" fullname="Actor" hidden="true" id="2147483647" name="actor" order="0"/>
