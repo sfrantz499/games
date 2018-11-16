@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pack>
+    <tileset across="1" atlasID="0" desc="" down="1" id="8" name="earth" oid="-1" shared="false" th="64" tw="64">
+        <tile collision="0" data="" durations="100" frames="0" id="0" order="-1"/>
+    </tileset>
     <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="4" fixedrot="false" fric="0.2" gid="3" id="0" ignoreg="false" inertia="1.0" ldamp="0.0" mass="1.0" name="mrdrop" oid="-1" pausable="true" physicsMode="0" rest="0.0" shared="false" sprite="1" static="false">
         <snippets/>
     </actor>
