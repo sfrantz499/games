@@ -69,7 +69,7 @@ import com.stencyl.graphics.shaders.BloomShader;
 
 
 
-class ActorEvents_0 extends ActorScript
+class ActorEvents_11 extends ActorScript
 {
 	
 	
@@ -81,25 +81,6 @@ class ActorEvents_0 extends ActorScript
 	
 	override public function init()
 	{
-		
-		/* ======================== When Updating ========================= */
-		addWhenUpdatedListener(null, function(elapsedTime:Float, list:Array<Dynamic>):Void
-		{
-			if(wrapper.enabled)
-			{
-				engine.cameraFollow(actor);
-				if(isKeyDown("right"))
-				{
-					actor.setXVelocity(15);
-					actor.setAnimation("" + "Animation 0");
-				}
-				else if(isKeyDown("left"))
-				{
-					actor.setXVelocity(-15);
-					actor.setAnimation("" + "Animation 1");
-				}
-			}
-		});
 		
 	}
 	
