@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="1" id="0">
+        <step comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <if comment="false" x="26" y="40">
+                    <group eventID="1" id="-1">
+                        <set-dxy comment="false" x="37" y="65">
+                            <ACTOR eid="this" id="0"/>
+                            <int id="1" val="0"/>
+                            <int id="2" val=""/>
+                        </set-dxy>
+                    </group>
+                    <get-val-12-2 comment="false" id="0" x="0" y="0"/>
+                </if>
+                <else comment="false" x="26" y="104">
+                    <group eventID="1" id="-1"/>
+                </else>
+            </group>
+        </step>
+    </group>
+    <group eventID="1" id="2">
+        <set-xy comment="false" x="313" y="146">
+            <ACTOR eid="this" id="0"/>
+            <int id="1" val="0"/>
+            <int id="2" val="20"/>
+        </set-xy>
+    </group>
+    <group eventID="1" id="3">
+        <set-xy comment="false" x="293" y="325">
+            <ACTOR eid="this" id="0"/>
+            <int id="1" val="0"/>
+            <int id="2" val="-20"/>
+        </set-xy>
+    </group>
+    <group eventID="1" id="-1"/>
+</groups>

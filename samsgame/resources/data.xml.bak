@@ -1,8 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pack>
+    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="1" continuous="true" desc="" eventsnippetid="12" fixedrot="true" fric="0.2" gid="3" id="33" ignoreg="false" inertia="1.0" ldamp="0.0" mass="1.0" name="alien" oid="-1" pausable="true" physicsMode="0" rest="0.0" shared="false" sprite="34" static="false">
+        <snippets/>
+    </actor>
+    <sprite atlasID="0" default="0" defaultAnimation="0" desc="" height="64" id="34" name="alien" shared="false" width="64">
+        <anim across="2" down="2" durations="100,100,100,100" height="128" id="0" loop="true" name="Animation 0" numframes="4" originx="32" originy="32" sync="false" version="2" width="128">
+            <poly data="4,0,0,64,0,64,64,0,64" density="0.1" fric="0.2" gid="-1000" id="0" name="Animation 0" rest="0.0" sensor="false"/>
+        </anim>
+    </sprite>
+    <music atlasID="0" desc="" id="22" loop="true" name="background" oid="-1" pan="0" shared="false" stream="true" type="mp3" volume="1"/>
+    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="0" continuous="true" desc="" eventsnippetid="10" fixedrot="true" fric="0.2" gid="3" id="23" ignoreg="false" inertia="1.0" ldamp="0.0" mass="1.0" name="boss" oid="-1" pausable="true" physicsMode="0" rest="0.0" shared="false" sprite="24" static="true">
+        <snippets>
+            <s enabled="true" id="11">
+                <prop id="2147483647" list="0" val="thisactor"/>
+                <prop id="1" list="0" val="3.0"/>
+                <prop id="2" list="0" val="3.0"/>
+                <prop id="3" list="0" val="3.0"/>
+                <prop id="4" list="0" val="Healed"/>
+                <prop id="5" list="0" val="Damaged"/>
+                <prop id="7" list="0" val="Kill"/>
+                <prop id="8" list="0" val="false"/>
+                <prop id="9" list="0" val="0.5"/>
+                <prop id="10" list="0" val="true"/>
+                <prop id="11" list="0" val="false"/>
+                <prop id="12" list="0" val="touchfloor"/>
+                <prop id="13" list="0" val=""/>
+                <prop id="14" list="0" val="No Sound"/>
+                <prop id="15" list="0" val="No Sound"/>
+                <prop id="16" list="0" val="No Sound"/>
+                <prop id="17" list="0" val="false"/>
+                <prop id="18" list="0" val="0.0"/>
+                <prop id="19" list="0" val="0.0"/>
+                <prop id="20" list="0" val=""/>
+                <prop id="22" list="0" val="5"/>
+                <prop id="23" list="0" val="true"/>
+                <prop id="24" list="0" val="33"/>
+                <prop id="25" list="0" val="0.0"/>
+                <prop id="26" list="0" val="-1"/>
+                <prop id="27" list="0" val="0.0"/>
+                <prop id="28" list="0" val="1.0"/>
+                <prop id="29" list="0" val="0.0"/>
+                <prop id="30" list="0" val="100.0"/>
+                <prop id="31" list="0" val="5.0"/>
+                <prop id="32" list="0" val="-1"/>
+                <prop id="39" list="0" val="0,0,0,255"/>
+                <prop id="41" list="0" val="0,255,0,255"/>
+                <prop id="42" list="0" val="255,255,0,255"/>
+                <prop id="43" list="0" val="255,153,0,255"/>
+                <prop id="44" list="0" val="255,0,0,255"/>
+                <prop id="45" list="0" val="0,0,0,255"/>
+                <prop id="46" list="0" val="true"/>
+            </s>
+        </snippets>
+    </actor>
+    <sprite atlasID="0" default="0" defaultAnimation="0" desc="" height="128" id="24" name="boss" shared="false" width="128">
+        <anim across="3" down="2" durations="100,100,100,100,100" height="256" id="0" loop="true" name="Animation 0" numframes="5" originx="64" originy="64" sync="false" version="2" width="384">
+            <poly data="4,25,25,89,25,89,89,25,89" density="0.1" fric="0.2" gid="-1000" id="0" name="Animation 0" rest="0.0" sensor="false"/>
+        </anim>
+    </sprite>
+    <custom-block blocktag="custom-29" blocktype="ACTION" code=".say(&quot;Health Manager&quot;, &quot;_customBlock_Damage&quot;, []);" desc="Subtracts a specific amount of health from the Actor." global="false" gui="Damage %0 By %1" id="29" message="Damage" name="Damage" oid="-1" return="void" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+        <blank name="Amount" order="1" type="number"/>
+    </custom-block>
+    <custom-block blocktag="custom-17" blocktype="ACTION" code="sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_DecrementScore&quot;, []);" desc="" global="false" gui="Decrement Score By %0" id="17" message="DecrementScore" name="DecrementScore" oid="-1" return="void" shared="false" snippetID="9">
+        <blank name="Amount" order="0" type="number"/>
+    </custom-block>
     <tileset across="1" atlasID="0" desc="" down="1" id="8" name="earth" oid="-1" shared="false" th="64" tw="64">
         <tile collision="0" data="" durations="100" frames="0" id="0" order="-1"/>
     </tileset>
+    <custom-block blocktag="custom-27" blocktype="ACTION" code=".say(&quot;Health Manager&quot;, &quot;_customBlock_FullRestore&quot;);" desc="" global="false" gui="Restore %0 To Full Health" id="27" message="FullRestore" name="FullRestore" oid="-1" return="void" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+    </custom-block>
+    <custom-block blocktag="custom-32" blocktype="NORMAL" code="cast(.say(&quot;Health Manager&quot;, &quot;_customBlock_GetCurrentHealth&quot;), Float)" desc="" global="false" gui="Current Health for %0" id="32" message="GetCurrentHealth" name="GetCurrentHealth" oid="-1" return="number" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+    </custom-block>
+    <custom-block blocktag="custom-19" blocktype="NORMAL" code="cast(sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_GetFont&quot;), Font)" desc="Get the font used. Use for if you are setting up labels to retain consistency across Flash and other platforms." global="false" gui="Get Font" id="19" message="GetFont" name="GetFont" oid="-1" return="font" shared="false" snippetID="9"/>
+    <custom-block blocktag="custom-30" blocktype="NORMAL" code="cast(.say(&quot;Health Manager&quot;, &quot;_customBlock_GetInvincibility&quot;), Bool)" desc="" global="false" gui="%0 Is Invincible?" id="30" message="GetInvincibility" name="GetInvincibility" oid="-1" return="boolean" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+    </custom-block>
+    <custom-block blocktag="custom-31" blocktype="NORMAL" code="cast(.say(&quot;Health Manager&quot;, &quot;_customBlock_GetMaxHealth&quot;), Float)" desc="" global="false" gui="Maximum Health For %0" id="31" message="GetMaxHealth" name="GetMaxHealth" oid="-1" return="number" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+    </custom-block>
+    <custom-block blocktag="custom-21" blocktype="NORMAL" code="cast(sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_GetScore&quot;), Float)" desc="" global="false" gui="Get Current Score" id="21" message="GetScore" name="GetScore" oid="-1" return="number" shared="false" snippetID="9"/>
+    <custom-block blocktag="custom-16" blocktype="NORMAL" code="cast(sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_GetXOffset&quot;), Float)" desc="" global="false" gui="Get Score Drawing X Offset" id="16" message="GetXOffset" name="GetXOffset" oid="-1" return="number" shared="false" snippetID="9"/>
+    <custom-block blocktag="custom-15" blocktype="NORMAL" code="cast(sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_GetYOffset&quot;), Float)" desc="" global="false" gui="Get Score Drawing Y Offset" id="15" message="GetYOffset" name="GetYOffset" oid="-1" return="number" shared="false" snippetID="9"/>
+    <custom-block blocktag="custom-28" blocktype="ACTION" code=".say(&quot;Health Manager&quot;, &quot;_customBlock_Heal&quot;, []);" desc="Adds a specific amount of health to the Actor." global="false" gui="Heal %0 By %1" id="28" message="Heal" name="Heal" oid="-1" return="void" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+        <blank name="Amount" order="1" type="number"/>
+    </custom-block>
+    <custom-block blocktag="custom-18" blocktype="ACTION" code="sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_IncrementScore&quot;, []);" desc="" global="false" gui="Increment Score By %0" id="18" message="IncrementScore" name="IncrementScore" oid="-1" return="void" shared="false" snippetID="9">
+        <blank name="Amount" order="0" type="number"/>
+    </custom-block>
     <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="4" fixedrot="true" fric="0.2" gid="3" id="0" ignoreg="false" inertia="1.0" ldamp="0.0" mass="1.0" name="mrdrop" oid="-1" pausable="true" physicsMode="0" rest="0.0" shared="false" sprite="1" static="false">
         <snippets/>
     </actor>
@@ -14,12 +102,30 @@
             <poly data="4,25,25,57,25,57,57,25,57" density="0.1" fric="0.2" gid="-1000" id="0" name="Animation 1" rest="0.0" sensor="false"/>
         </anim>
     </sprite>
+    <custom-block blocktag="custom-13" blocktype="ACTION" code="sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_SetDrawOffset&quot;, [, ]);" desc="" global="false" gui="Set Score Drawing Offset to X %0 Y %1" id="13" message="SetDrawOffset" name="SetDrawOffset" oid="-1" return="void" shared="false" snippetID="9">
+        <blank name="Horizontal" order="0" type="number"/>
+        <blank name="Vertical" order="1" type="number"/>
+    </custom-block>
+    <custom-block blocktag="custom-26" blocktype="ACTION" code=".say(&quot;Health Manager&quot;, &quot;_customBlock_SetHealth&quot;, []);" desc="" global="false" gui="Set Health For %0 To %1" id="26" message="SetHealth" name="SetHealth" oid="-1" return="void" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+        <blank name="Amount" order="1" type="number"/>
+    </custom-block>
+    <custom-block blocktag="custom-25" blocktype="ACTION" code=".say(&quot;Health Manager&quot;, &quot;_customBlock_SetInvincibility&quot;, []);" desc="" global="false" gui="Set Invincibility For %0 to %1" id="25" message="SetInvincibility" name="SetInvincibility" oid="-1" return="void" shared="false" snippetID="11">
+        <blank name="Self" order="0" type="actor"/>
+        <blank name="Status" order="1" type="boolean"/>
+    </custom-block>
+    <custom-block blocktag="custom-14" blocktype="ACTION" code="sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_SetScore&quot;, []);" desc="" global="false" gui="Set Current Score To %0" id="14" message="SetScore" name="SetScore" oid="-1" return="void" shared="false" snippetID="9">
+        <blank name="Score" order="0" type="number"/>
+    </custom-block>
+    <custom-block blocktag="custom-20" blocktype="ACTION" code="sayToScene(&quot;Score Manager&quot;, &quot;_customBlock_SetScoreFont&quot;, []);" desc="" global="false" gui="Set Score Font To %0" id="20" message="SetScoreFont" name="SetScoreFont" oid="-1" return="void" shared="false" snippetID="9">
+        <blank name="Font" order="0" type="font"/>
+    </custom-block>
     <background atlasID="0" desc="" durations="100" dx="-0.0" dy="-0.0" height="480" id="10" name="sky" numframes="1" oid="-1" repeats="false" resized="false" shared="false" width="640" xpf="1.0" ypf="1.0"/>
     <tileset across="2" atlasID="0" desc="" down="1" id="5" name="water2" oid="-1" shared="false" th="64" tw="64">
         <tile collision="0" data="" durations="100" frames="0" id="0" order="-1"/>
         <tile collision="-1" data="" durations="100" frames="1" id="1" order="-1"/>
     </tileset>
-    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="6" fixedrot="false" fric="0.2" gid="1" id="6" ignoreg="false" inertia="1.0" ldamp="0.0" mass="1.0" name="water3" oid="-1" pausable="true" physicsMode="0" rest="0.0" shared="false" sprite="7" static="false">
+    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="6" fixedrot="false" fric="0.2" gid="2" id="6" ignoreg="false" inertia="1.0" ldamp="0.0" mass="1.0" name="water3" oid="-1" pausable="true" physicsMode="0" rest="0.0" shared="false" sprite="7" static="false">
         <snippets/>
     </actor>
     <sprite atlasID="0" default="0" defaultAnimation="0" desc="" height="32" id="7" name="water3" shared="false" width="32">

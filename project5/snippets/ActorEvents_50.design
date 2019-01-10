@@ -9,14 +9,14 @@
                             <ACTOR eid="this" id="0"/>
                             <int id="1" val="1"/>
                             <minus comment="false" id="2" x="0" y="0">
-                                <get-game-val-0 comment="false" id="0" x="0" y="0"/>
+                                <int id="0" val=""/>
                                 <get-xy comment="false" id="1" x="0" y="0">
                                     <ACTOR eid="this" id="0"/>
                                     <int id="1" val="0"/>
                                 </get-xy>
                             </minus>
                             <minus comment="false" id="3" x="0" y="0">
-                                <get-game-val-1 comment="false" id="0" x="0" y="0"/>
+                                <int id="0" val=""/>
                                 <get-xy comment="false" id="1" x="0" y="0">
                                     <ACTOR eid="this" id="0"/>
                                     <int id="1" val="1"/>
@@ -38,14 +38,14 @@
                             <ACTOR eid="this" id="0"/>
                             <int id="1" val="1"/>
                             <minus comment="false" id="2" x="0" y="0">
-                                <get-game-val-0 comment="false" id="0" x="0" y="0"/>
+                                <int id="0" val=""/>
                                 <get-xy comment="false" id="1" x="0" y="0">
                                     <ACTOR eid="this" id="0"/>
                                     <int id="1" val="0"/>
                                 </get-xy>
                             </minus>
                             <minus comment="false" id="3" x="0" y="0">
-                                <get-game-val-1 comment="false" id="0" x="0" y="0"/>
+                                <int id="0" val=""/>
                                 <get-xy comment="false" id="1" x="0" y="0">
                                     <ACTOR eid="this" id="0"/>
                                     <int id="1" val="1"/>
@@ -58,7 +58,12 @@
             </group>
         </step>
     </group>
-    <group eventID="1" id="-1"/>
+    <group eventID="1" id="-1">
+        <get-game-val-1 comment="false" x="548" y="357"/>
+        <get-game-val-1 comment="false" x="622" y="378"/>
+        <get-game-val-0 comment="false" x="317" y="324"/>
+        <get-game-val-0 comment="false" x="336" y="375"/>
+    </group>
     <group eventID="2" id="0">
         <event-periodic comment="false" x="15" y="15">
             <group eventID="2" id="-1">
